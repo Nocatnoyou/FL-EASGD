@@ -257,17 +257,17 @@ if __name__=="__main__":
                 pre_parameters[var] = global_parameters[var]
         else:
             for var in sum_parameters:
-                # global_parameters[var] = torch.tensor(1-b)*pre_parameters[var]+sum_parameters[var] / torch.tensor(b*num_in_comm)
+                # global_parameters[var] = torch.tensor(1-b) * pre_parameters[var] + sum_parameters[var] / torch.tensor(b * num_in_comm)
                 print("1======")
-                global_parameters[var] = torch.tensor(b/count)*sum_parameters[var]
-                # global_parameters[var] = torch.tensor(b/num_in_comm)*sum_parameters[var]
+                global_parameters[var] = torch.tensor(b/count) * sum_parameters[var]
+                # global_parameters[var] = torch.tensor(b/num_in_comm) * sum_parameters[var]
                 print("2======")
-                global_parameters[var] += torch.tensor(1-b)*pre_parameters[var]
+                global_parameters[var] += torch.tensor(1-b) * pre_parameters[var]
                 print("3======")
                 pre_parameters[var] = global_parameters[var]
         # print(global_parameters)
         print(f'coast:{time.perf_counter() - t:.8f}s')
-        # global_parameters[var] = torch.tensor(1-b)*pre_parameters[var]+sum_parameters[var] / torch.tensor(b*num_in_comm)
+        # global_parameters[var] = torch.tensor(1-b)*pre_parameters[var] + sum_parameters[var] / torch.tensor(b*num_in_comm)
 
 
         # pre_parameters = {}
